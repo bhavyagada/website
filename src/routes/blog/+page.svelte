@@ -1,3 +1,3 @@
 <main>
-  Home
+  Blog
 </main>
