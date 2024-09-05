@@ -6,7 +6,7 @@
   <title>Projects | Bhavya Gada</title>
 </svelte:head>
 
-<main class="font-serif">
+<main>
   <section>
     <h2 class="text-xl">Wat dat</h2>
     <a href="https://addons.mozilla.org/addon/watdat/" class="text-blue-700 hover:underline">live</a> |
