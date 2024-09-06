@@ -1,0 +1,7 @@
+WEBVTT
+
+00:01.000 --> 00:02.000
+This is the Wat dat demo.
+
+00:02.000 --> 00:05.000
+The user highlighted some text, pressed Ctrl/Cmd+Shift+X and received an AI explanation within the extension popup.

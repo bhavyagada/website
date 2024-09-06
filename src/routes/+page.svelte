@@ -3,7 +3,7 @@
 </svelte:head>
 
 <main>
-  Home
+  I am a full stack developer who is currently working on pivoting my career towards machine learning and artificial intelligence.
 </main>
 
 <h2 class="text-xl py-2">Socials</h2>

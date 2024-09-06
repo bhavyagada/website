@@ -1,5 +1,6 @@
 <script>
-  import watdat from "$lib/images/watdat.png";
+  import watdat_v from "$lib/videos/watdat.mp4";
+  import watdat_c from "$lib/videos/watdat.vtt";
   import watdat_hn from "$lib/images/watdat_hn.png";
   import watdat_shn from "$lib/images/watdat_shn.png";
 </script>
@@ -19,8 +20,13 @@
     <p class="py-2">
       This eliminates the need to copy-pasting text into an LLM, helps maintain your workflow, and reduces context-switching.
     </p>
-    <img src={watdat} alt="wat dat screenshot" class="py-2" />
-    <p class="py-2">This briefly reached the #13 spot on the front page of Hacker News.</p>
+    <video controls>
+      <source src={watdat_v} type="video/mp4" />
+      <track default kind="captions" src={watdat_c}>
+    </video>
+    <p class="py-2">
+      This project briefly reached the #13 spot on the front page of <a href="https://news.ycombinator.com/item?id=41453283" class="text-blue-700 hover:underline">Hacker News</a>.
+    </p>
     <img src={watdat_hn} alt="wat dat #13 on hacker news" class="py-2" />
     <p class="py-2">And, briefly reached the #3 spot on the Show HN page of Hacker News.</p>
     <img src={watdat_shn} alt="wat dat #3 on show hacker news" class="py-2" />
