@@ -11,7 +11,11 @@
 
 <main>
   <section>
-    <h2 class="text-xl">Wat dat</h2>
+    <div class="flex w-full py-4">
+      <u class="flex-1 text-xl">Wat dat</u>
+        <span class="text-right text-md bg-gray-800 text-white px-2 py-1 mr-2">LLM</span>
+        <span class="text-right text-md bg-gray-800 text-white px-2 py-1">Extension</span>
+    </div>
     <a href="https://addons.mozilla.org/addon/watdat/" class="text-blue-700 hover:underline">live</a> |
     <a href="https://github.com/bhavyagada/watdat" class="text-blue-700 hover:underline">code</a>
     <p class="py-2">
