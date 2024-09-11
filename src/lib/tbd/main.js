@@ -24,8 +24,37 @@ export const init = () => {
 	document.addEventListener('keydown', onKeyDown);
 	window.addEventListener('resize', onResize);
 
+	let img = new Image();
+	toDataURL(
+		'https://www.jockostore.com/cdn/shop/t/33/assets/popup-image.jpg?v=142777728587095439201637241641',
+		(base64String) => {
+			img.onload = function () {
+				const image = createImage(renderer, img, canvas.width / 2, canvas.height / 2);
+				scene.push(image);
+				history.push({ type: 'add', image: image });
+				needsRender = true;
+			};
+			img.src = base64String;
+			console.log(base64String);
+		}
+	);
+
 	onResize();
 	render();
+};
+
+const toDataURL = (url, callback) => {
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function () {
+		let reader = new FileReader();
+		reader.onloadend = function () {
+			callback(reader.result);
+		};
+		reader.readAsDataURL(xhr.response);
+	};
+	xhr.open('GET', url);
+	xhr.responseType = 'blob';
+	xhr.send();
 };
 
 const getImageAtPosition = (x, y) => {

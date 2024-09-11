@@ -2,7 +2,6 @@ export const imageVertexShader = `#version 300 es
   in vec2 a_position;
   in vec2 a_texCoord;
   uniform vec2 u_resolution;
-  uniform vec2 u_translation;
   out vec2 v_texCoord;
   void main() {
     vec2 zeroToOne = a_position / u_resolution;
@@ -22,4 +21,3 @@ export const imageFragmentShader = `#version 300 es
     outColor = texture(u_image, v_texCoord);
   }
 `;
-

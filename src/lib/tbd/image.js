@@ -35,7 +35,6 @@ export const initImage = (renderer, image) => {
 	image.texCoordAttributeLocation = gl.getAttribLocation(image.program, 'a_texCoord');
 	image.resolutionUniformLocation = gl.getUniformLocation(image.program, 'u_resolution');
 	image.imageUniformLocation = gl.getUniformLocation(image.program, 'u_image');
-	image.translationUniformLocation = gl.getUniformLocation(image.program, 'u_translation');
 
 	image.vao = gl.createVertexArray();
 	gl.bindVertexArray(image.vao);
@@ -84,10 +83,6 @@ export const renderImage = (renderer, image) => {
 	gl.activeTexture(gl.TEXTURE0 + 0);
 	gl.bindTexture(gl.TEXTURE_2D, image.texture);
 	gl.uniform1i(image.imageUniformLocation, 0);
-
-	const centerX = image.x - image.width / 2;
-	const centerY = gl.canvas.height - image.y - image.height / 2;
-	gl.uniform2f(image.translationUniformLocation, centerX, centerY);
 
 	gl.bindBuffer(gl.ARRAY_BUFFER, image.positionBuffer);
 	let halfWidth = image.width / 2;
