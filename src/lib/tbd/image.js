@@ -1,5 +1,6 @@
 import { createShader, createProgram } from './utils';
 import { imageVertexShader, imageFragmentShader } from './shaders';
+import { renderBorder } from './border';
 
 export const createImage = (renderer, imageElement, x, y) => {
 	const image = {
@@ -68,7 +69,7 @@ export const initImage = (renderer, image) => {
 	image.initialized = true;
 };
 
-export const renderImage = (renderer, image) => {
+export const renderImage = (renderer, image, isSelected) => {
 	if (!image.initialized) {
 		console.warn('Attempting to render uninitialized image');
 		return;
@@ -99,4 +100,8 @@ export const renderImage = (renderer, image) => {
 	gl.drawArrays(gl.TRIANGLES, 0, 6);
 
 	gl.bindVertexArray(null);
+
+	if (isSelected) {
+		renderBorder(renderer, renderer.border, image.x, image.y, image.width, image.height);
+	}
 };

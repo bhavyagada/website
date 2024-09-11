@@ -17,12 +17,15 @@ export const init = () => {
 	renderer = createRenderer(canvas);
 
 	// add event listeners
+	canvas.addEventListener('touchmove', onTouchMove, { passive: false });
+	canvas.addEventListener('touchstart', onTouchStart, { passive: false });
+	canvas.addEventListener('touchend', onTouchEnd, { passive: false });
 	canvas.addEventListener('mousemove', onMouseMove);
 	canvas.addEventListener('mousedown', onMouseDown);
 	canvas.addEventListener('mouseup', onMouseUp);
 	document.addEventListener('paste', onPaste);
 	document.addEventListener('keydown', onKeyDown);
-	window.addEventListener('resize', onResize);
+	// window.addEventListener('resize', onResize);
 
 	let img = new Image();
 	toDataURL(
@@ -72,6 +75,46 @@ const getImageAtPosition = (x, y) => {
 	return null;
 };
 
+const onTouchMove = (event) => {
+	event.preventDefault(); // Prevent scrolling
+	if (event.touches.length === 1) {
+		const touch = event.touches[0];
+		const rect = event.target.getBoundingClientRect();
+		mouseX = touch.clientX - rect.left;
+		mouseY = touch.clientY - rect.top;
+
+		if (isDragging && selectedImage) {
+			const dx = mouseX - lastMouseX;
+			const dy = mouseY - lastMouseY;
+			selectedImage.x += dx;
+			selectedImage.y += dy;
+			needsRender = true;
+		}
+
+		lastMouseX = mouseX;
+		lastMouseY = mouseY;
+	}
+};
+
+const onTouchStart = (event) => {
+	event.preventDefault();
+	if (event.touches.length === 1) {
+		const touch = event.touches[0];
+		const rect = event.target.getBoundingClientRect();
+		mouseX = touch.clientX - rect.left;
+		mouseY = touch.clientY - rect.top;
+		isDragging = true;
+		lastMouseX = mouseX;
+		lastMouseY = mouseY;
+		selectedImage = getImageAtPosition(mouseX, mouseY);
+	}
+};
+
+const onTouchEnd = (event) => {
+	event.preventDefault();
+	isDragging = false;
+};
+
 const onMouseMove = (event) => {
 	const rect = event.target.getBoundingClientRect();
 	mouseX = event.clientX - rect.left;
@@ -93,10 +136,28 @@ const onMouseDown = () => {
 	isDragging = true;
 	lastMouseX = mouseX;
 	lastMouseY = mouseY;
-	selectedImage = getImageAtPosition(mouseX, mouseY);
+	const clickedImage = getImageAtPosition(mouseX, mouseY);
+	if (clickedImage !== selectedImage) {
+		selectedImage = clickedImage;
+		if (selectedImage) {
+			selectedImage.initialX = selectedImage.x;
+			selectedImage.initialY = selectedImage.y;
+		}
+		needsRender = true;
+	}
 };
 
 const onMouseUp = () => {
+	if (isDragging && selectedImage) {
+		if (selectedImage.x !== selectedImage.initialX || selectedImage.y !== selectedImage.initialY) {
+			history.push({
+				type: 'move',
+				image: selectedImage,
+				fromX: selectedImage.initialX,
+				fromY: selectedImage.initialY
+			});
+		}
+	}
 	isDragging = false;
 };
 
@@ -138,6 +199,10 @@ const onKeyDown = (event) => {
 			case 'delete':
 				scene.splice(lastAction.index, 0, lastAction.image);
 				break;
+			case 'move':
+				lastAction.image.x = lastAction.fromX;
+				lastAction.image.y = lastAction.fromY;
+				break;
 		}
 		needsRender = true;
 	}
@@ -163,10 +228,14 @@ const onResize = () => {
 const render = () => {
 	if (needsRender) {
 		clearRenderer(renderer);
-		scene.forEach((object) => renderImage(renderer, object));
+		scene.forEach((object) => renderImage(renderer, object, object === selectedImage));
 		needsRender = false;
 	}
 	requestAnimationFrame(render);
 };
+
+// Call onResize initially and add event listener
+window.addEventListener('load', onResize);
+window.addEventListener('resize', onResize);
 
 export default init;

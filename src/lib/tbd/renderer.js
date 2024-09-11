@@ -1,9 +1,13 @@
+import { createBorder } from './border';
+
 export const createRenderer = (canvas) => {
 	const gl = canvas.getContext('webgl2');
 	if (!gl) {
 		throw new Error('WebGL2 not supported!');
 	}
-	return { gl, canvas };
+	const renderer = { gl, canvas };
+	renderer.border = createBorder(renderer);
+	return renderer;
 };
 
 export const resizeRenderer = (renderer, multiplier = 1) => {
