@@ -1,4 +1,4 @@
-import { createBorder } from './border';
+import { createBorder } from './image';
 
 export const createRenderer = (canvas) => {
 	const gl = canvas.getContext('webgl2');
