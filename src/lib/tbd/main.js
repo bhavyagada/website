@@ -1,5 +1,4 @@
-import { createRenderer, resizeRenderer, clearRenderer } from './renderer';
-import { createImage, renderImage } from './image';
+import { createRenderer, resizeRenderer, clearRenderer, createImage, renderImage } from './renderer';
 
 let scene = [];
 let history = [];
@@ -13,8 +12,10 @@ let lastMouseX = 0;
 let lastMouseY = 0;
 
 export const init = () => {
-	const canvas = document.querySelector('#c');
-	renderer = createRenderer(canvas);
+	const canvas = document.querySelector("#c");
+	const gl = canvas.getContext("webgl2");
+	if (!gl) throw new Error("WebGL2 not supported!");
+	renderer = createRenderer(canvas, gl);
 
 	// add event listeners
 	canvas.addEventListener('touchmove', onTouchMove, { passive: false });
