@@ -1,4 +1,5 @@
-import { createRenderer, resizeRenderer, clearRenderer, createImage, renderImage } from './renderer';
+import { createRenderer, resizeRenderer, clearRenderer, createToolbar, loadToolbarTexture, createImage, renderImage, isPointInToolbar } from './renderer';
+import moveBackIcon from './icons/moveback.png';
 
 let scene = [];
 let history = [];
@@ -18,6 +19,12 @@ export const init = () => {
   const gl = canvas.getContext("webgl2");
   if (!gl) throw new Error("WebGL2 not supported!");
   renderer = createRenderer(canvas, gl);
+  toolbar = createToolbar(gl);
+
+  // Load toolbar texture
+  loadToolbarTexture(gl, toolbar, moveBackIcon).then(() => {
+    needsRender = true;
+  });
 
   // add event listeners
   canvas.addEventListener('touchmove', onTouchMove, { passive: false });
@@ -58,66 +65,82 @@ const loadImage = (url) => {
   xhr.send();
 };
 
-const getImageAtPosition = (x, y) => scene.find(img => (x >= img.x - img.width / 2 && x <= img.x + img.width / 2 && y >= img.y - img.height / 2 && y <= img.y + img.height / 2) || null);
-
-const handleDrag = (event) => {
-  const rect = event.target.getBoundingClientRect();
-  mouseX = event.clientX - rect.left;
-  mouseY = event.clientY - rect.top;
-
-  if (isDragging && selectedImage) {
-    const dx = mouseX - lastMouseX;
-    const dy = mouseY - lastMouseY;
-    selectedImage.x += dx;
-    selectedImage.y += dy;
-    needsRender = true;
+const getImageAtPosition = (x, y) => {
+  for (let i = scene.length - 1; i >= 0; i--) {
+    const img = scene[i];
+    if (x >= img.x - img.width / 2 && x <= img.x + img.width / 2 &&
+      y >= img.y - img.height / 2 && y <= img.y + img.height / 2) {
+      return img;
+    }
   }
+  return null;
+};
 
-  lastMouseX = mouseX;
-  lastMouseY = mouseY;
+const handleInteraction = (x, y, isStart) => {
+  if (isStart) {
+    isDragging = true;
+    lastMouseX = x;
+    lastMouseY = y;
+
+    if (selectedImage && isPointInToolbar(x, y, toolbar, selectedImage)) {
+      const index = scene.indexOf(selectedImage);
+      scene.unshift(scene.splice(index, 1)[0]);
+      needsRender = true;
+      return true; // Indicate that we interacted with the toolbar
+    }
+
+    const clickedImage = getImageAtPosition(x, y);
+    if (clickedImage !== selectedImage) {
+      selectedImage = clickedImage;
+      if (selectedImage) {
+        selectedImage.initialX = selectedImage.x;
+        selectedImage.initialY = selectedImage.y;
+      }
+      needsRender = true;
+    }
+  } else {
+    if (isDragging && selectedImage) {
+      const dx = x - lastMouseX;
+      const dy = y - lastMouseY;
+      selectedImage.x += dx;
+      selectedImage.y += dy;
+      needsRender = true;
+    }
+
+    lastMouseX = x;
+    lastMouseY = y;
+  }
+  return false; // Indicate that we didn't interact with the toolbar
 };
 
 const onTouchMove = (event) => {
   event.preventDefault();
   if (event.touches.length === 1) {
-    handleDrag(event.touches[0]);
+    const touch = event.touches[0];
+    const rect = event.target.getBoundingClientRect();
+    mouseX = touch.clientX - rect.left;
+    mouseY = touch.clientY - rect.top;
+    handleInteraction(mouseX, mouseY, false);
   }
 };
 
 const onTouchStart = (event) => {
   event.preventDefault();
   if (event.touches.length === 1) {
-    isDragging = true;
-    lastMouseX = mouseX;
-    lastMouseY = mouseY;
-    selectedImage = getImageAtPosition(mouseX, mouseY);
+    const touch = event.touches[0];
+    const rect = event.target.getBoundingClientRect();
+    mouseX = touch.clientX - rect.left;
+    mouseY = touch.clientY - rect.top;
+    if (handleInteraction(mouseX, mouseY, true)) {
+      event.preventDefault();
+    }
   }
 };
 
 const onTouchEnd = (event) => {
   event.preventDefault();
   isDragging = false;
-};
-
-const onMouseMove = (event) => handleDrag(event);
-
-const onMouseDown = () => {
-  isDragging = true;
-  lastMouseX = mouseX;
-  lastMouseY = mouseY;
-  const clickedImage = getImageAtPosition(mouseX, mouseY);
-  if (clickedImage !== selectedImage) {
-    selectedImage = clickedImage;
-    if (selectedImage) {
-      selectedImage.initialX = selectedImage.x;
-      selectedImage.initialY = selectedImage.y;
-    }
-    needsRender = true;
-  }
-};
-
-const onMouseUp = () => {
-  if (isDragging && selectedImage && (selectedImage.x !== selectedImage.initialX || selectedImage.y !== selectedImage.initialY)) {
+  if (selectedImage && (selectedImage.x !== selectedImage.initialX || selectedImage.y !== selectedImage.initialY)) {
     history.push({
       type: 'move',
       image: selectedImage,
@@ -125,7 +148,34 @@ const onMouseUp = () => {
       fromY: selectedImage.initialY
     });
   }
+};
+
+const onMouseMove = (event) => {
+  const rect = event.target.getBoundingClientRect();
+  mouseX = event.clientX - rect.left;
+  mouseY = event.clientY - rect.top;
+  handleInteraction(mouseX, mouseY, false);
+};
+
+const onMouseDown = (event) => {
+  const rect = event.target.getBoundingClientRect();
+  mouseX = event.clientX - rect.left;
+  mouseY = event.clientY - rect.top;
+  if (handleInteraction(mouseX, mouseY, true)) {
+    event.preventDefault();
+  }
+};
+
+const onMouseUp = () => {
   isDragging = false;
+  if (selectedImage && (selectedImage.x !== selectedImage.initialX || selectedImage.y !== selectedImage.initialY)) {
+    history.push({
+      type: 'move',
+      image: selectedImage,
+      fromX: selectedImage.initialX,
+      fromY: selectedImage.initialY
+    });
+  }
 };
 
 const onWheel = (event) => {

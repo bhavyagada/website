@@ -66,6 +66,53 @@ export const clearRenderer = (renderer) => {
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 };
 
+export const createToolbar = (gl) => {
+  const texture = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, texture);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 255]));
+
+  return {
+    texture,
+    width: 30,
+    height: 30,
+    gap: 10
+  };
+};
+
+export const loadToolbarTexture = (gl, toolbar, imageSrc) => {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => {
+      gl.bindTexture(gl.TEXTURE_2D, toolbar.texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+      gl.generateMipmap(gl.TEXTURE_2D);
+      resolve();
+    };
+    image.src = imageSrc;
+  });
+};
+
+export const renderToolbar = (gl, positionBuffer, uniforms, toolbar, image) => {
+  const toolbarX = image.x - toolbar.width / 2;
+  const toolbarY = image.y - image.height / 2 - toolbar.height - toolbar.gap;
+
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_2D, toolbar.texture);
+  gl.uniform1i(uniforms.image, 0);
+  gl.uniform1i(uniforms.isImage, true);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+    toolbarX, toolbarY,
+    toolbarX + toolbar.width, toolbarY,
+    toolbarX, toolbarY + toolbar.height,
+    toolbarX, toolbarY + toolbar.height,
+    toolbarX + toolbar.width, toolbarY,
+    toolbarX + toolbar.width, toolbarY + toolbar.height
+  ]), gl.STATIC_DRAW);
+  gl.drawArrays(gl.TRIANGLES, 0, 6);
+};
+
 export const createImage = (renderer, imageElement, x, y) => {
   const { gl } = renderer;
   const texture = gl.createTexture();
@@ -87,7 +134,7 @@ export const createImage = (renderer, imageElement, x, y) => {
 };
 
 export const renderImage = (renderer, image, isSelected) => {
-  const { gl, program, vao, uniforms, positionBuffer } = renderer;
+  const { gl, program, vao, uniforms, positionBuffer, toolbarTexture } = renderer;
 
   gl.useProgram(program);
   gl.uniform2f(uniforms.resolution, gl.canvas.width, gl.canvas.height);
@@ -129,7 +176,17 @@ export const renderImage = (renderer, image, isSelected) => {
 			-0.5, 0.5
 		]), gl.STATIC_DRAW);
     gl.drawArrays(gl.LINE_LOOP, 0, 4);
+
+    // Render toolbar
+    renderToolbar(gl, positionBuffer, uniforms, toolbar, image);
   }
 
   gl.bindVertexArray(null);
+};
+
+export const isPointInToolbar = (x, y, toolbar, image) => {
+  const toolbarX = image.x - toolbar.width / 2;
+  const toolbarY = image.y - image.height / 2 - toolbar.height - toolbar.gap;
+
+  return x >= toolbarX && x <= toolbarX + toolbar.width && y >= toolbarY && y <= toolbarY + toolbar.height;
 };
