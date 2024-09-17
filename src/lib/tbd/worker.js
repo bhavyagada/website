@@ -1,4 +1,4 @@
-import { env, SamModel, AutoProcessor, RawImage, Tensor } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.14.0';
+import { env, SamModel, AutoProcessor, RawImage, Tensor } from '@xenova/transformers';
 
 env.allowLocalModels = false;
 
