@@ -12,17 +12,17 @@
 <main>
   <section>
     <div class="flex w-full py-4">
-      <u class="flex-1 text-xl">TBD</u>
+      <u class="flex-1 text-xl">Imged</u>
       <span class="text-right text-md bg-gray-800 text-white px-2 py-1 mr-2">WebGL</span>
     </div>
-    <a href="/tbd" target="_blank" class="text-blue-700 hover:underline">live</a> |
+    <a href="/imged" target="_blank" class="text-blue-700 hover:underline">live</a> |
     <a href="https://github.com/bhavyagada/webgl" target="_blank" class="text-blue-700 hover:underline">code</a> |
     <a href="/notes#webgl" class="text-blue-700 hover:underline">notes</a>
     <p class="py-2 text-xl">
       [work in progress]
     </p>
     <p class="py-2">
-      The name is TBD (to be decided), but I'm trying to learn WebGL by building something similar to
+      I'm trying to learn WebGL by building an Image Editor (Imged) similar to
       <a href="https://dingboard.com" target="_blank" class="text-blue-700 hover:underline">dingboard</a>.
     </p>
     <p class="py-2">
