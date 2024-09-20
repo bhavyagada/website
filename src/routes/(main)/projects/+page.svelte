@@ -19,17 +19,17 @@
     <a href="https://github.com/bhavyagada/webgl" target="_blank" class="text-blue-700 hover:underline">code</a> |
     <a href="/notes#webgl" class="text-blue-700 hover:underline">notes</a>
     <p class="py-2 text-xl">
-      [work in progress]
+      [work in progress] so, expect a lot of bugs!
     </p>
     <p class="py-2">
       I'm trying to learn WebGL by building an Image Editor (Imged) similar to
       <a href="https://dingboard.com" target="_blank" class="text-blue-700 hover:underline">dingboard</a>.
     </p>
     <p class="py-2">
-      Everything rendered on the canvas is written purely in WebGL2.
+      Everything rendered on the canvas is done purely using WebGL2.
     </p>
     <p class="py-2">
-      So far, users can paste multiple images, select and drag them around, delete selected images, and undo their actions.
+      So far, users can paste multiple images, select and drag them around, delete selected images, segment images, crop them, perform depthwise background removal, and undo their actions (incomplete).
     </p>
     <p class="py-2">
       It ain't much, but it's honest work.
