@@ -3,7 +3,12 @@
 </svelte:head>
 
 <main>
-  I am a full stack developer who is currently working on pivoting my career towards machine learning and artificial intelligence.
+  <p>Full stack developer. Interested in ML/AI.</p>
+  <h3 class="text-xl mt-4 pb-2">
+    What I'm doing now <small>(<a href="https://sive.rs/now" class="text-blue-700">inspired by sivers</a>)</small>
+  </h3>
+  <p class="py-2">- Focused on getting a job, that means leetcode and stuff.</p>
+  <p class="py-2">- Which means taking a break from the things I like to do to focus on the things I need to do.</p>
 </main>
 
 <h2 class="text-xl mt-4 pb-2">Socials</h2>
