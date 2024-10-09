@@ -7,8 +7,7 @@
   <h3 class="text-xl mt-4 pb-2">
     What I'm doing now <small>(<a href="https://sive.rs/now" class="text-blue-700">inspired by sivers</a>)</small>
   </h3>
-  <p class="py-2">- Focused on getting a job, that means leetcode and stuff.</p>
-  <p class="py-2">- Which means taking a break from the things I like to do to focus on the things I need to do.</p>
+  <p class="py-2">I'm focusing on job hunting, which means prioritizing leetcode and stuff over my personal interests.</p>
 </main>
 
 <h2 class="text-xl mt-4 pb-2">Socials</h2>

@@ -16,8 +16,7 @@
       <span class="text-right text-md bg-gray-800 text-white px-2 py-1 mr-2">WebGL</span>
     </div>
     <a href="/imged" target="_blank" class="text-blue-700 hover:underline">live</a> |
-    <a href="https://github.com/bhavyagada/webgl" target="_blank" class="text-blue-700 hover:underline">code</a> |
-    <a href="/notes#webgl" class="text-blue-700 hover:underline">notes</a>
+    <a href="https://github.com/bhavyagada/webgl" target="_blank" class="text-blue-700 hover:underline">code</a>
     <p class="py-2 text-xl">
       [work in progress] so, expect a lot of bugs!
     </p>
@@ -43,8 +42,7 @@
       <span class="text-right text-md bg-gray-800 text-white px-2 py-1">Extension</span>
     </div>
     <a href="https://addons.mozilla.org/addon/watdat/" target="_blank" class="text-blue-700 hover:underline">live</a> |
-    <a href="https://github.com/bhavyagada/watdat" target="_blank" class="text-blue-700 hover:underline">code</a> |
-    <a href="/notes#extensions" class="text-blue-700 hover:underline">notes</a>
+    <a href="https://github.com/bhavyagada/watdat" target="_blank" class="text-blue-700 hover:underline">code</a>
     <p class="py-2">
       Wat dat (What's that?) is a Firefox/Chrome extension that sends your highlighted text to an LLM and provides its explanation.
     </p>

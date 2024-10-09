@@ -12,7 +12,6 @@
       <!-- desktop view -->
       <nav class="hidden md:flex space-x-4">
         <a href="/blog" class="hover:text-blue-700">blog</a>
-        <a href="/notes" class="hover:text-blue-700">notes</a>
         <a href="/projects" class="hover:text-blue-700">projects</a>
       </nav>
   
@@ -34,7 +33,6 @@
     {#if is_menu_open}
       <nav class="md:hidden mt-2">
         <a href="/blog" class="block py-2 hover:text-blue-700 text-right" on:click={() => is_menu_open = false}>blog</a>
-        <a href="/notes" class="block py-2 hover:text-blue-700 text-right" on:click={() => is_menu_open = false}>notes</a>
         <a href="/projects" class="block py-2 hover:text-blue-700 text-right" on:click={() => is_menu_open = false}>projects</a>
       </nav>
     {/if}
