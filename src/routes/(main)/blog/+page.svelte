@@ -1,7 +1,9 @@
 <svelte:head>
-  <title>Blog | Bhavya Gada</title>
+  <title>Blog | Bhavya</title>
 </svelte:head>
 
 <main>
-  <section class="text-center"><em>WIP</em></section>
+  <h1 class="text-xl">
+    <span>&#45;&nbsp;</span><a href="/blog/hello" class="text-blue-700 hover:underline"> Hello</a>
+  </h1>
 </main>

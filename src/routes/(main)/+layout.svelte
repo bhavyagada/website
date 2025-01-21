@@ -7,7 +7,7 @@
 <div class="max-w-2xl my-0 mx-auto px-4 text-justify font-sans"> 
   <header class="py-4">
     <div class="container mx-auto flex justify-between items-center">
-      <a href="/"><div class="text-3xl hover:text-blue-700">Bhavya Gada</div></a>
+      <a href="/"><div class="text-3xl hover:text-blue-700">Bhavya</div></a>
   
       <!-- desktop view -->
       <nav class="hidden md:flex space-x-4">
