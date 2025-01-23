@@ -12,7 +12,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.3.1",
 		"@sveltejs/adapter-cloudflare": "^4.9.0",
-		"@sveltejs/kit": "^2.15.2",
+		"@sveltejs/kit": "^2.16.1",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"@types/eslint": "^9.6.1",
 		"autoprefixer": "^10.4.20",
@@ -25,7 +25,7 @@
 		"prettier-plugin-svelte": "^3.3.3",
 		"svelte": "^4.2.19",
 		"tailwindcss": "^3.4.17",
-		"vite": "^5.4.11"
+		"vite": "^5.4.14"
 	},
 	"type": "module",
 	"dependencies": {
