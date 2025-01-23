@@ -1,7 +1,8 @@
 <script>
   import "../../app.css";
 
-  let is_menu_open = false;
+  let { children } = $props();
+  let is_menu_open = $state(false);
 </script>
 
 <div class="max-w-2xl my-0 mx-auto px-4 text-justify font-sans"> 
@@ -16,7 +17,7 @@
       </nav>
   
       <!-- mobile menu button -->
-      <button class="md:hidden" on:click={() => is_menu_open = !is_menu_open}>
+      <button class="md:hidden" onclick={() => is_menu_open = !is_menu_open}>
         {#if is_menu_open}
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -32,14 +33,14 @@
     <!-- mobile view -->
     {#if is_menu_open}
       <nav class="md:hidden mt-2">
-        <a href="/blog" class="block py-2 hover:text-blue-700 text-right" on:click={() => is_menu_open = false}>blog</a>
-        <a href="/projects" class="block py-2 hover:text-blue-700 text-right" on:click={() => is_menu_open = false}>projects</a>
+        <a href="/blog" class="block py-2 hover:text-blue-700 text-right" onclick={() => is_menu_open = false}>blog</a>
+        <a href="/projects" class="block py-2 hover:text-blue-700 text-right" onclick={() => is_menu_open = false}>projects</a>
       </nav>
     {/if}
   </header>
   <hr class="mb-4" />
 
-  <slot />
+  {@render children?.()}
 </div>
 
 
