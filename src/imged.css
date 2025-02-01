@@ -1,0 +1,23 @@
+div#imged {
+  position: relative;
+}
+#imged canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.menu {
+  position: absolute;
+  background-color: white;
+  color: black;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 5px;
+  left: 10px;
+  top: 10px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

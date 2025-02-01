@@ -1,4 +1,5 @@
 <script>
+  import "../../../imged.css";
   import { onMount } from "svelte";
   import init from "$lib/imged/main";
   import favicon from "$lib/imged/icons/favicon.ico";
@@ -17,21 +18,21 @@
 </script>
 
 <svelte:head>
-  <title>Imged | Bhavya Gada</title>
+  <title>Imged | Bhavya</title>
   <link rel="icon" type="image/x-icon" href={favicon}>
 </svelte:head>
 
-<div class="relative">
-  <canvas id="c" class="w-screen h-screen block"></canvas>
-  <div class="absolute bg-white text-sm text-black font-mono p-2 left-2.5 top-2.5 leading-4">
-    <div class="flex items-center gap-2"><img src={dptIcon} alt="DPT Icon" width="15" height="15"> depthwise BG removal</div>
-    <div class="flex items-center gap-2"><img src={segmentIcon} alt="Segment Icon" width="15" height="15"> segment</div>
-    <div class="flex items-center gap-2"><img src={backIcon} alt="Back Icon" width="15" height="15"> move to back</div>
-    <div class="flex items-center gap-2"><img src={flipIcon} alt="Flip Icon" width="15" height="15"> flip</div>
-    <div class="flex items-center gap-2"><img src={duplicateIcon} alt="Duplicate Icon" width="15" height="15"> duplicate</div>
-    <div class="flex items-center gap-2"><img src={cropIcon} alt="Crop Icon" width="15" height="15"> crop</div>
-    <div class="flex items-center gap-2"><img src={downloadIcon} alt="Download Icon" width="15" height="15"> download</div>
-    <div class="flex items-center gap-2"><img src={deleteIcon} alt="Delete Icon" width="15" height="15"> delete</div>
+<div id="imged">
+  <canvas id="c"></canvas>
+  <div class="menu">
+    <div class="item"><img src={dptIcon} alt="DPT Icon" width="15" height="15"> depthwise BG removal</div>
+    <div class="item"><img src={segmentIcon} alt="Segment Icon" width="15" height="15"> segment</div>
+    <div class="item"><img src={backIcon} alt="Back Icon" width="15" height="15"> move to back</div>
+    <div class="item"><img src={flipIcon} alt="Flip Icon" width="15" height="15"> flip</div>
+    <div class="item"><img src={duplicateIcon} alt="Duplicate Icon" width="15" height="15"> duplicate</div>
+    <div class="item"><img src={cropIcon} alt="Crop Icon" width="15" height="15"> crop</div>
+    <div class="item"><img src={downloadIcon} alt="Download Icon" width="15" height="15"> download</div>
+    <div class="item"><img src={deleteIcon} alt="Delete Icon" width="15" height="15"> delete</div>
   </div>
 </div>
 
@@ -42,4 +43,3 @@
     overflow: hidden;
   }
 </style>
-

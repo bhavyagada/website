@@ -1,23 +1,63 @@
-@import 'tailwindcss';
-
-@theme {
-  --font-sans: Poppins, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
-
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+body {
+  max-width: 40em;
+  margin: 0 auto;
+  padding: 5px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000;
+  background-color: #fdfdfd;
+}
+h1, h2, h3, header {
+	line-height: 1em
+}
+h1, h3 {
+	font-size: 2em
+}
+h2, h3 {
+	margin-top: 1.5em;
+  margin-bottom: 20px;
+}
+header {
+  font-size: 3em;
+}
+section {
+  margin-bottom: 4em;
+}
+a:link {
+  color: #20b;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: #606;
+}
+p {
+  margin: 20px 0;
+}
+#blogs ul {
+  margin-bottom: 0.4em;
+}
+#blogs ul li {
+  margin-left: 1em;
+  list-style-type: square;
+}
+#blogs ul ul li {
+  margin-bottom: 0.2em;
+}
+main h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+video {
+  width: 100%;
+  height: 50vh;
 }

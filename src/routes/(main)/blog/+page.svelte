@@ -2,8 +2,13 @@
   <title>Blog | Bhavya</title>
 </svelte:head>
 
-<main>
-  <h1 class="text-xl">
-    <span>&#45;&nbsp;</span><a href="/blog/hello" class="text-blue-700 hover:underline"> Hello</a>
-  </h1>
+<main id="blogs">
+  <h2>2025</h2>
+  <ul>
+    <li>January
+      <ul>
+        <li><a href="/blog/hello">Hello World</a></li>
+      </ul>
+    </li>
+  </ul>
 </main>

@@ -3,11 +3,16 @@
 </svelte:head>
 
 <main>
-  <h3 class="text-xl mt-4 pb-2">About</h3>
-  <p class="py-2">Software Engineer</p>
-  <h3 class="text-xl mt-4 pb-2">What I'm doing now</h3>
-  <p class="py-2">Job hunting, leetcode and stuff!</p>
+  <section id="about">
+    <h2>About</h2>
+    <p>Software Engineer</p>
+    <h2>What I'm doing now</h2>
+    <p>Job hunting, leetcode and stuff!</p>
+    <h2>Weblog</h2>
+    <p>See <a href="/blog">my "blog" page</a>.</p>
+    <h2>Projects</h2>
+    <p>See <a href="/projects">my "projects" page</a>.</p>
+    <h2>Social</h2>
+    <p><a href="https://x.com/bsgada">@bsgada</a> on twitter</p>
+  </section>
 </main>
-
-<h2 class="text-xl mt-4 pb-2">Socials</h2>
-<a href="https://x.com/bsgada" class="text-blue-700">twitter</a>
