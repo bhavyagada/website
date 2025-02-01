@@ -5,7 +5,7 @@
 </script>
 
 <header>
-  <a href="/" title="Bhavya Gada">Bhavya Gada</a>
+  <a href="/" title="Bhavya">Bhavya</a>
 </header>
 
 {@render children?.()}

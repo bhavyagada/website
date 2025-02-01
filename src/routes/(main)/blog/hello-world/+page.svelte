@@ -1,9 +1,13 @@
 <svelte:head>
-  <title>Hello | Bhavya</title>
+  <title>Hello world | Bhavya</title>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@bsgada" />
+  <meta name="twitter:title" content="Hello world" />
+  <meta name="twitter:description" content="A few reasons for why I started blogging." />
 </svelte:head>
 
 <main>
-  <h2>Hello World</h2>
+  <h2>Hello world</h2>
   <p>
     I've wanted to do more things in life than I actually have, and I've had dozens of excuses for not doing so.
   </p>
