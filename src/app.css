@@ -42,15 +42,19 @@ a:visited {
 p {
   margin: 20px 0;
 }
-#blogs ul {
+ul {
   margin-bottom: 0.4em;
 }
-#blogs ul li {
+ul li {
   margin-left: 1em;
   list-style-type: square;
 }
-#blogs ul ul li {
+ul ul li {
   margin-bottom: 0.2em;
+}
+main {
+  text-align: justify;
+  text-justify: auto;
 }
 main h2 {
   font-family: Arial, Helvetica, sans-serif;

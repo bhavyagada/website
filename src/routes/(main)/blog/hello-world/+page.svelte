@@ -9,28 +9,18 @@
 <main>
   <h2>Hello world</h2>
   <p>
-    I've wanted to do more things in life than I actually have, and I've had dozens of excuses for not doing so.
+    I've always had excuses for not pursuing my goals. This blog is my first step towards change.
   </p>
   <p>
-    Ultimately, I've learned that it's always been my fault. This blog is one step forward towards fixing my life!
+    My aims with this blog:
   </p>
+  <ul>
+    <li>Overcome my introverted nature to connect with like-minded people.</li>
+    <li>Improve clarity and articulation in my writing.</li>
+    <li>Create a substantial body of work that could benefit others and myself.</li>
+  </ul>
   <p>
-    Writing publicly is one of the things I have always wanted to do. Apart from wanting to be a better writer, I have a few goals:
-  </p>
-  <p>
-    <span>&#45;&nbsp;</span><strong>Find My People</strong>: I'm an introvert and honestly never had the courage to go out of my way to find and talk to cool people. I kept holding back, worried they might not want to talk to me.
-  </p>
-  <p>
-    <span>&#45;&nbsp;</span><strong>Be Articulate</strong>: Every other day I read something so perfectly written that it blows my mind. It feels perfect because it communicates something, exactly as I would have wanted to if I had that kind of clarity.
-  </p>
-  <p>
-    <span>&#45;&nbsp;</span><strong>Be Prolific</strong>: I want to write millions of words and create a body of work which could possibly be useful to someone, including myself.
-  </p>
-  <p>
-    I have no particular plan in mind on what to write about. I'll just wing it and see where it goes.
-  </p>
-  <p>
-    Right now, I just want to be persistent and get the reps in.
+    I have no specific plan for content. My current focus is on consistency and practice.
   </p>
 </main>
 

@@ -6,7 +6,7 @@
   <meta name="twitter:description" content="A list of all my blogs." />
 </svelte:head>
 
-<main id="blogs">
+<main>
   <h2>2025</h2>
   <ul>
     <li>January
