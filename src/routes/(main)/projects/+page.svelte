@@ -1,8 +1,6 @@
 <script>
   import watdat_v from "$lib/videos/watdat.mp4";
   import watdat_c from "$lib/videos/watdat.vtt";
-  // import watdat_hn from "$lib/images/watdat_hn.png";
-  // import watdat_shn from "$lib/images/watdat_shn.png";
 </script>
 
 <svelte:head>
@@ -17,6 +15,7 @@
       [wip] Learning WebGL by building an Image Editor (Imged) similar to
       <a href="https://dingboard.com" target="_blank">dingboard</a>.
     </p>
+    <iframe src="https://www.youtube.com/embed/6Y_ERF6cpuo?si=Zqi_S4u9FDgFcE1v" title="AI Image Editor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </section>
 
   <section id="watdat">
@@ -26,18 +25,29 @@
       Wat dat (What's that?) is a Firefox Extension that sends any highlighted text to an LLM and provides its explanation.
     </p>
     <p>
-      This eliminates the need to copy-pasting text into an LLM, helps maintain your workflow, and reduces context-switching.
-    </p>
-    <p>
-      This project briefly reached the #13 spot on the front page of Hacker News.
-     <!-- <a href="https://news.ycombinator.com/item?id=41453283" target="_blank" >Hacker News</a>.-->
+      This project briefly trended on the front page of Hacker News.
     </p>
     <video controls muted>
       <source src={watdat_v} type="video/mp4" />
       <track default kind="captions" src={watdat_c}>
     </video>
-    <!-- <img src={watdat_hn} alt="wat dat #13 on hacker news" /> -->
-    <!-- <img src={watdat_shn} alt="wat dat #3 on show hacker news" /> -->
+  </section>
+
+  <section id="xene">
+    <h2>Xene</h2>
+    <a href="https://github.com/bhavyagada/xene">Code</a>
+    <p>
+      A programming platform to access logical abilities featuring programming challenges, context-sensitive keyboard, analytics and leaderboard.
+    </p>
+    <iframe src="https://www.youtube.com/embed/EsxX6f1hYQY?si=-UqrElK9wMfaXhPm" title="Xene: A Radical Programming Platform" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </section>
+
+  <section id="rtsudoku">
+    <h2>Real Time Sudoku Solver</h2>
+    <a href="https://github.com/bhavyagada/rtsudoku">Code</a>
+    <p>
+      Trained a CNN on digit characters in natural images and used OpenCV to detect the board and puzzle, and write the solution.
+    </p>
+    <iframe src="https://www.youtube.com/embed/oWHhShJrLng?si=BbEd6cbFQsVW1sdk&amp;start=50" title="Real Time Sudoku Solver" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </section>
 </main>
-
