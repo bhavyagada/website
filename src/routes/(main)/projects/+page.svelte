@@ -25,8 +25,11 @@
       Wat dat (What's that?) is a Firefox Extension that sends any highlighted text to an LLM and provides its explanation.
     </p>
     <p>
-      This project briefly trended on the front page of Hacker News.
+      This project had 40+ users at its peak and briefly trended on the front page of Hacker News.
     </p>
+    <p><small><i>
+      Note: Firefox now has a built-in feature to do this, which kind of makes this project obsolete.
+    </i></small></p>
     <video controls muted>
       <source src={watdat_v} type="video/mp4" />
       <track default kind="captions" src={watdat_c}>
