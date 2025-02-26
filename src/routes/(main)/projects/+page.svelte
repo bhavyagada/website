@@ -1,5 +1,5 @@
 <script>
-  import YtPlayer from "./YTPlayer.svelte";
+  import YtPlayer from "$lib/components/YTPlayer.svelte";
   import watdat_v from "$lib/videos/watdat.mp4";
   import watdat_c from "$lib/videos/watdat.vtt";
 </script>
@@ -9,6 +9,13 @@
 </svelte:head>
 
 <main>
+  <section id="yt-embed">
+    <h2>Youtube Embed Optimization Tool</h2>
+    <a href="/optimized-youtube-embed">Live</a>
+    <p>
+      This tool optimizes Youtube embeds for faster page loads.
+    </p>
+  </section>
   <section id="imged">
     <h2>Imged</h2>
     <a href="/imged">Live</a>
