@@ -1,4 +1,5 @@
 <script>
+  import YtPlayer from "./YTPlayer.svelte";
   import watdat_v from "$lib/videos/watdat.mp4";
   import watdat_c from "$lib/videos/watdat.vtt";
 </script>
@@ -15,7 +16,11 @@
       [wip] Learning WebGL by building an Image Editor (Imged) similar to
       <a href="https://dingboard.com" target="_blank">dingboard</a>.
     </p>
-    <iframe src="https://www.youtube.com/embed/6Y_ERF6cpuo?si=Zqi_S4u9FDgFcE1v" title="AI Image Editor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <YtPlayer
+      src="https://www.youtube.com/embed/6Y_ERF6cpuo"
+      thumbnail="https://i.ytimg.com/vi/6Y_ERF6cpuo/maxresdefault.jpg"
+      title="AI Image Editor"
+    />
   </section>
 
   <section id="watdat">
@@ -42,7 +47,11 @@
     <p>
       A programming platform to access logical abilities featuring programming challenges, context-sensitive keyboard, analytics and leaderboard.
     </p>
-    <iframe src="https://www.youtube.com/embed/EsxX6f1hYQY?si=-UqrElK9wMfaXhPm" title="Xene: A Radical Programming Platform" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <YtPlayer
+      src="https://www.youtube.com/embed/EsxX6f1hYQY"
+      thumbnail="https://i.ytimg.com/vi/EsxX6f1hYQY/sddefault.jpg"
+      title="Xene: A Radical Programming Platform"
+    />
   </section>
 
   <section id="rtsudoku">
@@ -51,6 +60,10 @@
     <p>
       Trained a CNN on digit characters in natural images and used OpenCV to detect the board and puzzle, and write the solution.
     </p>
-    <iframe src="https://www.youtube.com/embed/oWHhShJrLng?si=BbEd6cbFQsVW1sdk&amp;start=50" title="Real Time Sudoku Solver" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <YtPlayer
+      src="https://www.youtube.com/embed/oWHhShJrLng"
+      thumbnail="https://i.ytimg.com/vi/oWHhShJrLng/maxresdefault.jpg"
+      title="Real Time Sudoku Solver"
+    />
   </section>
 </main>
