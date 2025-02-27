@@ -9,13 +9,6 @@
 </svelte:head>
 
 <main>
-  <section id="yt-embed">
-    <h2>Youtube Embed Optimization Tool</h2>
-    <a href="/optimized-youtube-embed">Live</a>
-    <p>
-      This tool optimizes Youtube embeds for faster page loads.
-    </p>
-  </section>
   <section id="imged">
     <h2>Imged</h2>
     <a href="/imged">Live</a>
@@ -72,5 +65,13 @@
       thumbnail="https://i.ytimg.com/vi/oWHhShJrLng/maxresdefault.jpg"
       title="Real Time Sudoku Solver"
     />
+  </section>
+
+  <section id="yt-embed">
+    <h2>Youtube Embed Optimization Tool</h2>
+    <a href="/optimized-youtube-embed">Live</a>
+    <p>
+      This tool optimizes Youtube embeds for faster page loads.
+    </p>
   </section>
 </main>
