@@ -9,9 +9,23 @@
 </svelte:head>
 
 <main>
+  <section id="xene">
+    <h2>Xene</h2>
+    <a href="https://xene-bsg.koyeb.app" target="_blank">Live</a> | 
+    <a href="https://github.com/bhavyagada/xene" target="_blank">Code</a>
+    <p>
+      A programming platform to access logical abilities featuring programming challenges, context-sensitive keyboard, analytics and leaderboard.
+    </p>
+    <YtPlayer
+      src="https://www.youtube.com/embed/EsxX6f1hYQY"
+      thumbnail="https://i.ytimg.com/vi/EsxX6f1hYQY/sddefault.jpg"
+      title="Xene: A Radical Programming Platform"
+    />
+  </section>
+
   <section id="imged">
     <h2>Imged</h2>
-    <a href="/imged">Live</a>
+    <a href="/imged" target="_blank">Live</a>
     <p>
       [wip] Learning WebGL by building an Image Editor (Imged) similar to
       <a href="https://dingboard.com" target="_blank">dingboard</a>.
@@ -25,7 +39,7 @@
 
   <section id="watdat">
     <h2>Wat dat</h2>
-    <a href="https://addons.mozilla.org/addon/watdat/">Live</a>
+    <a href="https://addons.mozilla.org/addon/watdat/" target="_blank">Live</a>
     <p>
       Wat dat (What's that?) is a Firefox Extension that sends any highlighted text to an LLM and provides its explanation.
     </p>
@@ -41,22 +55,9 @@
     </video>
   </section>
 
-  <section id="xene">
-    <h2>Xene</h2>
-    <a href="https://xene-bsg.koyeb.app">Live</a>
-    <p>
-      A programming platform to access logical abilities featuring programming challenges, context-sensitive keyboard, analytics and leaderboard.
-    </p>
-    <YtPlayer
-      src="https://www.youtube.com/embed/EsxX6f1hYQY"
-      thumbnail="https://i.ytimg.com/vi/EsxX6f1hYQY/sddefault.jpg"
-      title="Xene: A Radical Programming Platform"
-    />
-  </section>
-
   <section id="rtsudoku">
     <h2>Real Time Sudoku Solver</h2>
-    <a href="https://github.com/bhavyagada/rtsudoku">Code</a>
+    <a href="https://github.com/bhavyagada/rtsudoku" target="_blank">Code</a>
     <p>
       Trained a CNN on digit characters in natural images and used OpenCV to detect the board and puzzle, and write the solution.
     </p>
@@ -69,7 +70,7 @@
 
   <section id="yt-embed">
     <h2>Youtube Embed Optimization Tool</h2>
-    <a href="/optimized-youtube-embed">Live</a>
+    <a href="/optimized-youtube-embed" target="_blank">Live</a>
     <p>
       This tool optimizes Youtube embeds for faster page loads.
     </p>
