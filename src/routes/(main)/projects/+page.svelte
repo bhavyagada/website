@@ -43,7 +43,7 @@
 
   <section id="xene">
     <h2>Xene</h2>
-    <a href="https://github.com/bhavyagada/xene">Code</a>
+    <a href="https://xene-bsg.koyeb.app">Live</a>
     <p>
       A programming platform to access logical abilities featuring programming challenges, context-sensitive keyboard, analytics and leaderboard.
     </p>
