@@ -11,8 +11,13 @@
 <main>
   <section id="xene">
     <h2>Xene</h2>
-    <a href="https://xene-bsg.koyeb.app" target="_blank">Live</a> | 
+    <a href="https://xene.onrender.com/" target="_blank">Live</a> | 
     <a href="https://github.com/bhavyagada/xene" target="_blank">Code</a>
+    <p><small>
+      <b>Dummy Login</b><br>
+      Email: hello@google.com<br>
+      Password: Hello@123
+    </small></p>
     <p>
       A programming platform to access logical abilities featuring programming challenges, context-sensitive keyboard, analytics and leaderboard.
     </p>
