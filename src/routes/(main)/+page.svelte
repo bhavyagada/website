@@ -17,7 +17,11 @@
     <h2>Projects</h2>
     <p>See <a href="/projects">my "projects" page</a>.</p>
     <h2>Social</h2>
-    <p><a href="https://x.com/bsgada">@bsgada</a> on twitter</p>
+    <p>
+      <a href="https://x.com/bsgada">X (twitter)</a> | 
+      <a href="https://www.linkedin.com/in/bhavyagada">linkedin</a> | 
+      <a href="https://github.com/bhavyagada">github</a>
+    </p>
     <h2>About this site</h2>
     <p>This site is a custom web application built using <a href="https://svelte.dev/docs/kit/introduction">SvelteKit</a> and hosted on <a href="https://www.cloudflare.com/">Cloudflare</a>.</p>
   </section>
